@@ -7,3 +7,21 @@
 $primary-color: #cfd8dc;
 
 @import 'materialize';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+
+  color: darken($primary-color, 30%);
+}
+
+p,
+span,
+strong,
+i {
+  color: darken($primary-color, 45%);
+}
