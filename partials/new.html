@@ -1,1 +1,24 @@
-<h1>Add/Edit</h1>
+<section ng-controller="ImageUploadController as imgUploadController">
+  <h4>Upload a New Image</h4>
+  <form name="imgUploadForm" ng-submit=imgUploadController.handleImageUpload(imgUploadForm.$valid) novalidate>
+    <div class="row">
+      <div class="input-field col m6 s12">
+        <i class="material-icons prefix">title</i>
+        <input id="name" type="text" required>
+        <label for="name">Title</label>
+      </div>
+      <div class="input-field col m6 s12">
+        <i class="material-icons prefix">attach_file</i>
+        <input id="url" type="text" required>
+        <label for="url">URL</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">mode_edit</i>
+        <textarea id="desc" class="materialize-textarea" lenght="400" required></textarea>
+        <label for="desc">Description or Post</label>
+      </div>
+    </div>
+  </form>
+</section>
