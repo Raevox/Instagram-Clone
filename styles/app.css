@@ -6843,7 +6843,7 @@ strong,
 i {
   color: #536972; }
 
-#logo {
+section.container header #logo {
   position: relative;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -6858,7 +6858,7 @@ i {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  #logo span {
+  section.container header #logo span {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -6872,7 +6872,7 @@ i {
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 2px white; }
 
-.nav-wrapper {
+section.container header nav .nav-wrapper {
   display: inline-block; }
 
 /*# sourceMappingURL=app.css.map */
