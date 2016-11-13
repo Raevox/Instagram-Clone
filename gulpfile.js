@@ -14,6 +14,7 @@ const vendorScriptSources = [
   path.join(__dirname, './node_modules/jquery/dist/jquery.js'),
   path.join(__dirname, './node_modules/moment/moment.js'),
   path.join(__dirname, './node_modules/angular/angular.js'),
+  path.join(__dirname, './node_modules/angular-ui-router/release/angular-ui-router.js'),
   path.join(__dirname, './node_modules/materialize-css/dist/js/materialize.js')
 ];
 
@@ -22,7 +23,8 @@ const scriptSources = [
   path.join(__dirname, './src/filters/*.js'),
   path.join(__dirname, './src/services/*.js'),
   path.join(__dirname, './src/directives/*.js'),
-  path.join(__dirname, './src/controllers/*.js')
+  path.join(__dirname, './src/controllers/*.js'),
+  path.join(__dirname, './src/client/*.js')
 ];
 
 const vendorStyleIncludePaths = [

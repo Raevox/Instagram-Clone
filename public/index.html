@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/">
 
   <link rel="stylesheet" href="styles/app.css">
 
@@ -13,7 +14,28 @@
 </head>
 
 <body>
-  <main class="container" ng-app="focaltome">
-  </main>
+  <section class="container" ng-app="focaltome">
+    <header>
+      <a id="logo" href="/">
+        <img id="image" src="images/focaltome.png" alt="FOCALTOME">
+        <div id="name">FOCALTOME</div>
+      </a>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="center hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/new">Upload</a></li>
+          </ul>
+          <ul id="mobile-nav" class="side-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/new">Upload</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main ui-view>
+    </main>
+  </section>
 </body>
 </html>
