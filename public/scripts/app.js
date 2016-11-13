@@ -36,7 +36,6 @@
 (function () {
   $(document).ready(function () {
     $('.button-collapse').sideNav();
-    $('textarea#desc').characterCounter();
   });
 })();
 //# sourceMappingURL=app.js.map

@@ -16,9 +16,12 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">mode_edit</i>
-        <textarea id="desc" class="materialize-textarea" lenght="400" required></textarea>
+        <textarea id="desc" class="materialize-textarea" length="400" required></textarea>
         <label for="desc">Description or Post</label>
       </div>
     </div>
   </form>
 </section>
+<script>
+$('textarea#desc').characterCounter();
+</script>
