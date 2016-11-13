@@ -9,6 +9,7 @@ const babel = require('gulp-babel');
 const sass = require('gulp-sass');
 
 const browserSync = require('browser-sync').create();
+const historyAPIFallback = require('connect-history-api-fallback')();
 
 const vendorScriptSources = [
   path.join(__dirname, './node_modules/jquery/dist/jquery.js'),
@@ -98,7 +99,8 @@ gulp.task('build', [ 'vendor:scripts', 'build:scripts', 'vendor:fonts', 'build:s
 gulp.task('serve', [ 'build' ], function() {
   browserSync.init({
     server: {
-      baseDir: path.join(__dirname, './public')
+      baseDir: path.join(__dirname, './public'),
+      middleware: [ historyAPIFallback ]
     }
   });
 });
