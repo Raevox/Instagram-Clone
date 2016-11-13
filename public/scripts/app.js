@@ -16,8 +16,27 @@
 })();
 
 (function () {
+  angular.module('focaltome').factory('InstacloneFactory', function InstacloneFactory($http) {
+    return {
+      hw: 'Hello, world!'
+    };
+  });
+})();
+
+(function () {
+  angular.module('focaltome').controller('ImageUploadController', ['InstacloneFactory', function ImageUploadController(InstacloneFactory) {
+    var vm = this;
+
+    vm.handleImageUpload = function (isValid) {
+      console.log(isValid);
+    };
+  }]);
+})();
+
+(function () {
   $(document).ready(function () {
     $('.button-collapse').sideNav();
+    $('textarea#desc').characterCounter();
   });
 })();
 //# sourceMappingURL=app.js.map
