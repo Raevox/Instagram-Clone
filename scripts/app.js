@@ -17,8 +17,21 @@
 
 (function () {
   angular.module('focaltome').factory('InstacloneFactory', function InstacloneFactory($http) {
+    var vm = this;
+    var X_CSRF_TOKEN = 'mannie';
+
+    vm.fetchImages = function (callback) {
+      $http.get('http://instagramcloneclass.herokuapp.com/images', {
+        headers: {
+          X_CSRF_TOKEN: X_CSRF_TOKEN
+        }
+      }).then(function (result) {
+        callback(result.data.images);
+      });
+    };
+
     return {
-      hw: 'Hello, world!'
+      fetchImages: vm.fetchImages
     };
   });
 })();
@@ -30,6 +43,17 @@
     vm.handleImageUpload = function (isValid) {
       console.log(isValid);
     };
+  }]);
+})();
+
+(function () {
+  angular.module('focaltome').controller('ShowcaseController', ['InstacloneFactory', function ShowcaseController(InstacloneFactory) {
+    var vm = this;
+
+    InstacloneFactory.fetchImages(function (images) {
+      vm.images = images;
+      console.log(vm.images);
+    });
   }]);
 })();
 
