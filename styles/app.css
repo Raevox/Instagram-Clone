@@ -6875,4 +6875,7 @@ section.container header #logo {
 section.container header nav .nav-wrapper {
   display: inline-block; }
 
+section.container main {
+  margin-top: 3rem; }
+
 /*# sourceMappingURL=app.css.map */
