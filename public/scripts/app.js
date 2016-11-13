@@ -17,7 +17,7 @@
 
 (function () {
   $(document).ready(function () {
-    $(".button-collapse").sideNav();
+    $('.button-collapse').sideNav();
   });
 })();
 //# sourceMappingURL=app.js.map
