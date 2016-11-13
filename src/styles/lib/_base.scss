@@ -1,4 +1,9 @@
 @import 'normalize';
 @import 'bourbon';
 
+/*
+  Materialize Overrides
+ */
+$primary-color: #cfd8dc;
+
 @import 'materialize';
