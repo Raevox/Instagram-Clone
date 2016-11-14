@@ -83,23 +83,24 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 })();
 
 (function () {
-  angular.module('focaltome').controller('ShowcaseController', ['InstacloneFactory', function ShowcaseController(InstacloneFactory) {
+  angular.module('focaltome').controller('ShowcaseController', ['$scope', 'InstacloneFactory', function ShowcaseController($scope, InstacloneFactory) {
     var vm = this;
 
     vm.posts = [];
 
     InstacloneFactory.fetchImages(function (images) {
       vm.posts = images;
-
       return vm.posts;
     });
 
     vm.handleImagePostLike = function (imageid, imagePost) {
-      InstacloneFactory.likeImagePost(imageid, function (image) {
-        var postId = vm.posts.findIndex(function (imagePost) {
-          return imagePost._id == imageid;
-        });
+      imagePost.liked = true;
+      setTimeout(function () {
+        imagePost.liked = false;
+        $scope.$apply();
+      }, 1000);
 
+      InstacloneFactory.likeImagePost(imageid, function (image) {
         imagePost.likes++;
       });
 
