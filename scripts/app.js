@@ -10,9 +10,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     }).state('new', {
       url: '/new',
       templateUrl: 'partials/new.html'
-    }).state('image', {
+    }).state('singleimage', {
       url: '/image/{imageid}',
-      templateUrl: 'partials/image.html'
+      templateUrl: 'partials/singleimage.html'
     });
 
     $urlRouterProvider.otherwise('/');
@@ -93,18 +93,17 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       return vm.posts;
     });
 
-    vm.handleImagePostLike = function (imageid, imagePost) {
+    vm.handleImagePostLike = function (imagePost) {
       imagePost.liked = true;
       setTimeout(function () {
         imagePost.liked = false;
         $scope.$apply();
       }, 1000);
 
-      InstacloneFactory.likeImagePost(imageid, function (image) {
+      InstacloneFactory.likeImagePost(imagePost._id, function (image) {
         imagePost.likes++;
+        return imagePost;
       });
-
-      return vm.posts;
     };
   }]);
 })();
@@ -116,6 +115,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     InstacloneFactory.fetchSingleImage($stateParams.imageid, function (image) {
       return vm.post = image;
     });
+
+    vm.handleImagePostLike = function () {
+      InstacloneFactory.likeImagePost(vm.post._id, function (image) {
+        vm.post.likes++;
+        return vm.post;
+      });
+    };
   }]);
 })();
 
