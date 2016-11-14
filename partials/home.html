@@ -3,7 +3,7 @@
     <div class="overlay" ng-dblclick="showcaseController.handleImagePostLike(post._id, post)">
       <h5 class="truncate" ui-sref="image({ imageid: post._id })">{{ post.title }}</h5>
       <p>{{ post.description }}</p>
-      <div class="liked"><i class="material-icons">plus_one</i></div>
+      <div class="liked" ng-class="(post.liked) ? 'active': ''"><i class="material-icons">plus_one</i></div>
     </div>
     <div class="image" style="background-image: url('{{post.url}}');"></div>
     <span class="likes left">{{ post.likes }} likes</span>
