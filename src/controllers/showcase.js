@@ -14,18 +14,17 @@
           return vm.posts;
         });
 
-        vm.handleImagePostLike = function(imageid, imagePost) {
+        vm.handleImagePostLike = function(imagePost) {
           imagePost.liked = true;
           setTimeout(function() {
             imagePost.liked = false;
             $scope.$apply();
           }, 1000);
 
-          InstacloneFactory.likeImagePost(imageid, image => {
+          InstacloneFactory.likeImagePost(imagePost._id, image => {
             imagePost.likes++;
+            return imagePost;
           });
-
-          return vm.posts;
         };
       }
     ]);

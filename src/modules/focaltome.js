@@ -11,9 +11,9 @@
           url: '/new',
           templateUrl: 'partials/new.html'
         })
-        .state('image', {
+        .state('singleimage', {
           url: '/image/{imageid}',
-          templateUrl: 'partials/image.html'
+          templateUrl: 'partials/singleimage.html'
         });
 
       $urlRouterProvider.otherwise('/');
