@@ -4,24 +4,26 @@
     <div class="row">
       <div class="input-field col m6 s12">
         <i class="material-icons prefix">title</i>
-        <input id="name" type="text" required>
+        <input id="name" type="text" ng-model="imgUploadController.newImage.title" required>
         <label for="name">Title</label>
       </div>
       <div class="input-field col m6 s12">
         <i class="material-icons prefix">attach_file</i>
-        <input id="url" type="text" required>
+        <input id="url" type="url" ng-model="imgUploadController.newImage.url" required>
         <label for="url">URL</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">mode_edit</i>
-        <textarea id="desc" class="materialize-textarea" length="400" required></textarea>
-        <label for="desc">Description or Post</label>
+        <textarea id="description" class="materialize-textarea" length="400" ng-model="imgUploadController.newImage.description" required></textarea>
+        <label for="description">Description or Post</label>
       </div>
     </div>
+    <button class="btn waves-effect waves-light right" type="submit">Submit<i class="material-icons right">send</i></button>
   </form>
 </section>
+
 <script>
-$('textarea#desc').characterCounter();
+$('textarea#description').characterCounter();
 </script>
