@@ -10,6 +10,8 @@
 
         vm.handleImageUpload = function(isValid) {
           if (!isValid) return;
+
+          InstacloneFactory.postNewImage(vm.newImage);
         };
       }
     ]);

@@ -15,7 +15,7 @@
         });
       };
 
-      vm.postNewImage = function(image, callback) {
+      vm.postNewImage = function(image) {
         $http.post(
           'http://instagramcloneclass.herokuapp.com/image/post',
           { ...image },
@@ -24,13 +24,12 @@
               X_CSRF_TOKEN
             }
           }
-        ).then(result => {
-          callback(result);
-        });
+        );
       };
 
       return {
-        fetchImages: vm.fetchImages
+        fetchImages: vm.fetchImages,
+        postNewImage: vm.postNewImage
       };
     });
 })();

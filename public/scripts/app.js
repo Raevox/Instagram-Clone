@@ -32,18 +32,17 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       });
     };
 
-    vm.postNewImage = function (image, callback) {
+    vm.postNewImage = function (image) {
       $http.post('http://instagramcloneclass.herokuapp.com/image/post', _extends({}, image), {
         headers: {
           X_CSRF_TOKEN: X_CSRF_TOKEN
         }
-      }).then(function (result) {
-        callback(result);
       });
     };
 
     return {
-      fetchImages: vm.fetchImages
+      fetchImages: vm.fetchImages,
+      postNewImage: vm.postNewImage
     };
   });
 })();
@@ -56,6 +55,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
     vm.handleImageUpload = function (isValid) {
       if (!isValid) return;
+
+      InstacloneFactory.postNewImage(vm.newImage);
     };
   }]);
 })();
