@@ -1,0 +1,13 @@
+<section id="single-image" ng-controller="SingleImageController as singleImgController">
+  <div class="row">
+    <div id="image" class="col m8 s12" style="background-image: url('{{singleImgController.post.url}}');"></div>
+    <aside id="information" class="col m4 s12">
+      <h3>{{ singleImgController.post.title }}</h3>
+      <hr>
+      <p>{{ singleImgController.post.description }}</p>
+      <hr>
+      <span class="left">{{ singleImgController.post.likes }}</span>
+      <i class="material-icons like right">plus_one</i>
+    </aside>
+  </div>
+</section>

@@ -10,6 +10,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     }).state('new', {
       url: '/new',
       templateUrl: 'partials/new.html'
+    }).state('image', {
+      url: '/image/{imageid}',
+      templateUrl: 'partials/image.html'
     });
 
     $urlRouterProvider.otherwise('/');
@@ -32,6 +35,16 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       });
     };
 
+    vm.fetchSingleImage = function (imageid, callback) {
+      $http.get('http://instagramcloneclass.herokuapp.com/images/' + imageid, {
+        headers: {
+          X_CSRF_TOKEN: X_CSRF_TOKEN
+        }
+      }).then(function (result) {
+        callback(result.data);
+      });
+    };
+
     vm.postNewImage = function (image) {
       $http.post('http://instagramcloneclass.herokuapp.com/image/post', _extends({}, image), {
         headers: {
@@ -48,6 +61,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
     return {
       fetchImages: vm.fetchImages,
+      fetchSingleImage: vm.fetchSingleImage,
       postNewImage: vm.postNewImage,
       likeImagePost: vm.likeImagePost
     };
@@ -69,7 +83,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 })();
 
 (function () {
-  angular.module('focaltome').controller('ShowcaseController', ['$scope', 'InstacloneFactory', function ShowcaseController($scope, InstacloneFactory) {
+  angular.module('focaltome').controller('ShowcaseController', ['InstacloneFactory', function ShowcaseController(InstacloneFactory) {
     var vm = this;
 
     vm.posts = [];
@@ -91,11 +105,16 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
       return vm.posts;
     };
+  }]);
+})();
 
-    vm.goToImagePost = function (imageid) {
-      // TODO: Implement single image display
-      console.log(imageid);
-    };
+(function () {
+  angular.module('focaltome').controller('SingleImageController', ['$stateParams', 'InstacloneFactory', function SingleImageController($stateParams, InstacloneFactory) {
+    var vm = this;
+
+    InstacloneFactory.fetchSingleImage($stateParams.imageid, function (image) {
+      return vm.post = image;
+    });
   }]);
 })();
 
