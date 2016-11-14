@@ -1,5 +1,7 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 (function () {
   angular.module('focaltome', ['ui.router']).config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider.state('home', {
@@ -30,6 +32,16 @@
       });
     };
 
+    vm.postNewImage = function (image, callback) {
+      $http.post('http://instagramcloneclass.herokuapp.com/image/post', _extends({}, image), {
+        headers: {
+          X_CSRF_TOKEN: X_CSRF_TOKEN
+        }
+      }).then(function (result) {
+        callback(result);
+      });
+    };
+
     return {
       fetchImages: vm.fetchImages
     };
@@ -44,7 +56,6 @@
 
     vm.handleImageUpload = function (isValid) {
       if (!isValid) return;
-      console.log(vm.newImage);
     };
   }]);
 })();
