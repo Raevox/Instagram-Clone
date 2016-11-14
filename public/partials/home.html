@@ -1,12 +1,12 @@
 <section id="home" ng-controller="ShowcaseController as showcaseController">
   <article class="image-post" ng-repeat="post in showcaseController.posts">
     <div class="overlay" ng-dblclick="showcaseController.handleImagePostLike(post._id, post)">
-      <h5 class="truncate" ng-click="showcaseController.goToImagePost(post._id)">{{ post.title | uppercase }}</h5>
+      <h5 class="truncate" ui-sref="image({ imageid: post._id })">{{ post.title }}</h5>
       <p>{{ post.description }}</p>
       <div class="liked"><i class="material-icons">plus_one</i></div>
     </div>
     <div class="image" style="background-image: url('{{post.url}}');"></div>
-    <span class="likes">{{ post.likes }} likes</span>
-    <i class="material-icons like" ng-click="showcaseController.handleImagePostLike(post._id, post)">plus_one</i>
+    <span class="likes left">{{ post.likes }} likes</span>
+    <i class="material-icons like right" ng-click="showcaseController.handleImagePostLike(post._id, post)">plus_one</i>
   </article>
 </section>

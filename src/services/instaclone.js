@@ -15,6 +15,16 @@
         });
       };
 
+      vm.fetchSingleImage = function(imageid, callback) {
+        $http.get(`http://instagramcloneclass.herokuapp.com/images/${imageid}`, {
+          headers: {
+            X_CSRF_TOKEN
+          }
+        }).then(result => {
+          callback(result.data);
+        });
+      };
+
       vm.postNewImage = function(image) {
         $http.post(
           'http://instagramcloneclass.herokuapp.com/image/post',
@@ -36,6 +46,7 @@
 
       return {
         fetchImages: vm.fetchImages,
+        fetchSingleImage: vm.fetchSingleImage,
         postNewImage: vm.postNewImage,
         likeImagePost: vm.likeImagePost
       };

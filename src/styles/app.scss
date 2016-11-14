@@ -37,6 +37,15 @@ section.container {
   main {
     margin-top: 3rem;
 
+    .like {
+      cursor: pointer;
+      @include user-select(none);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
     #home {
       .image-post {
         display: inline-block;
@@ -101,20 +110,19 @@ section.container {
           background-size: cover;
           background-position: center center;
         }
+      }
+    }
 
-        .likes {
-          float: left;
-        }
+    #single-image {
+      padding: 0 12px;
 
-        .like {
-          float: right;
+      #image {
+        height: 500px;
 
-          cursor: pointer;
+        background-position: center center;
+        background-size: contain;
 
-          &:hover {
-            text-decoration: underline;
-          }
-        }
+        border-radius: 4px;
       }
     }
   }

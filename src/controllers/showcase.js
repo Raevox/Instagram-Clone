@@ -2,9 +2,8 @@
   angular
     .module('focaltome')
     .controller('ShowcaseController', [
-      '$scope',
       'InstacloneFactory',
-      function ShowcaseController($scope, InstacloneFactory) {
+      function ShowcaseController(InstacloneFactory) {
         const vm = this;
 
         vm.posts = [];
@@ -25,11 +24,6 @@
           });
 
           return vm.posts;
-        };
-
-        vm.goToImagePost = function(imageid) {
-          // TODO: Implement single image display
-          console.log(imageid);
         };
       }
     ]);

@@ -10,6 +10,10 @@
         .state('new', {
           url: '/new',
           templateUrl: 'partials/new.html'
+        })
+        .state('image', {
+          url: '/image/{imageid}',
+          templateUrl: 'partials/image.html'
         });
 
       $urlRouterProvider.otherwise('/');
