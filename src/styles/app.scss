@@ -36,5 +36,86 @@ section.container {
 
   main {
     margin-top: 3rem;
+
+    #home {
+      .image-post {
+        display: inline-block;
+        position: relative;
+
+        .overlay,
+        .image {
+          @include size(400px);
+          border-radius: 4px;
+        }
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          padding: 3px 18px;
+          overflow-y: hidden;
+
+          cursor: pointer;
+          @include user-select(none);
+          color: white;
+          opacity: 0;
+          background-color: hsla(0, 100%, 0%, 0.6);
+
+          transition: opacity 0.2s linear;
+
+          &:hover {
+            opacity: 1;
+          }
+
+          * {
+            color: inherit;
+          }
+
+          h5 {
+            text-decoration: underline;
+          }
+
+          .liked {
+            display: inline-block;
+            opacity: 0;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+
+            text-align: center;
+
+            transition: top 0.3s linear,
+                        opacity 0.3s linear;
+
+            .material-icons {
+              font-size: 4.2rem;
+            }
+          }
+        }
+
+        .image {
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }
+
+        .likes {
+          float: left;
+        }
+
+        .like {
+          float: right;
+
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
 }

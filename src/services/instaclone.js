@@ -27,9 +27,17 @@
         );
       };
 
+      vm.likeImagePost = function(imageid, callback) {
+        $http.post('http://instagramcloneclass.herokuapp.com/images/vote', { imageid })
+          .then(result => {
+            callback(result.data.data);
+          });
+      };
+
       return {
         fetchImages: vm.fetchImages,
-        postNewImage: vm.postNewImage
+        postNewImage: vm.postNewImage,
+        likeImagePost: vm.likeImagePost
       };
     });
 })();
