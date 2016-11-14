@@ -40,8 +40,11 @@
   angular.module('focaltome').controller('ImageUploadController', ['InstacloneFactory', function ImageUploadController(InstacloneFactory) {
     var vm = this;
 
+    vm.newImage = {};
+
     vm.handleImageUpload = function (isValid) {
-      console.log(isValid);
+      if (!isValid) return;
+      console.log(vm.newImage);
     };
   }]);
 })();

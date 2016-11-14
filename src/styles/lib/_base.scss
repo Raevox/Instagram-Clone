@@ -5,6 +5,7 @@
   Materialize Overrides
  */
 $primary-color: #cfd8dc;
+$secondary-color: #607d8b;
 
 @import 'materialize';
 
@@ -22,6 +23,11 @@ h6 {
 p,
 span,
 strong,
+em,
 i {
   color: darken($primary-color, 45%);
+}
+
+button > i {
+  color: #fff;
 }

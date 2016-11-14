@@ -6,8 +6,10 @@
       function ImageUploadController(InstacloneFactory) {
         const vm = this;
 
+        vm.newImage = {};
+
         vm.handleImageUpload = function(isValid) {
-          console.log(isValid);
+          if (!isValid) return;
         };
       }
     ]);
