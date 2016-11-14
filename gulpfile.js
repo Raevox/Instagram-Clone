@@ -55,7 +55,7 @@ function compileScripts() {
   return gulp.src(scriptSources)
     .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
-    .pipe(babel({ presets: [ 'es2015' ] }).on('error', function(err) {
+    .pipe(babel({ presets: [ 'latest', 'stage-3' ] }).on('error', function(err) {
       const message = new util.PluginError('babel', err).toString();
       process.stderr.write(message + '\n');
 
