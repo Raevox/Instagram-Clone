@@ -7,8 +7,8 @@
         const vm = this;
 
         InstacloneFactory.fetchImages(images => {
-          vm.images = images;
-          console.log(vm.images);
+          vm.posts = images;
+          console.log(vm.posts);
         });
       }
     ]);

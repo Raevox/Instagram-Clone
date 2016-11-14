@@ -66,8 +66,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     var vm = this;
 
     InstacloneFactory.fetchImages(function (images) {
-      vm.images = images;
-      console.log(vm.images);
+      vm.posts = images;
+      console.log(vm.posts);
     });
   }]);
 })();

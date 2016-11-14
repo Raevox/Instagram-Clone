@@ -1,3 +1,7 @@
 <section ng-controller="ShowcaseController as showcaseController">
-  <h4>Home</h4>
+  <article class="image-post" ng-repeat="post in showcaseController.posts">
+    <div class="overlay"></div>
+    <div class="image" style="background-image: url('{{post.url}}');"></div>
+    <a><i class="material-icons">plus_one</i></a>
+  </article>
 </section>
