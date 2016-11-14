@@ -40,9 +40,16 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
       });
     };
 
+    vm.likeImagePost = function (imageid, callback) {
+      $http.post('http://instagramcloneclass.herokuapp.com/images/vote', { imageid: imageid }).then(function (result) {
+        callback(result.data.data);
+      });
+    };
+
     return {
       fetchImages: vm.fetchImages,
-      postNewImage: vm.postNewImage
+      postNewImage: vm.postNewImage,
+      likeImagePost: vm.likeImagePost
     };
   });
 })();
@@ -62,13 +69,33 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 })();
 
 (function () {
-  angular.module('focaltome').controller('ShowcaseController', ['InstacloneFactory', function ShowcaseController(InstacloneFactory) {
+  angular.module('focaltome').controller('ShowcaseController', ['$scope', 'InstacloneFactory', function ShowcaseController($scope, InstacloneFactory) {
     var vm = this;
+
+    vm.posts = [];
 
     InstacloneFactory.fetchImages(function (images) {
       vm.posts = images;
-      console.log(vm.posts);
+
+      return vm.posts;
     });
+
+    vm.handleImagePostLike = function (imageid, imagePost) {
+      InstacloneFactory.likeImagePost(imageid, function (image) {
+        var postId = vm.posts.findIndex(function (imagePost) {
+          return imagePost._id == imageid;
+        });
+
+        imagePost.likes++;
+      });
+
+      return vm.posts;
+    };
+
+    vm.goToImagePost = function (imageid) {
+      // TODO: Implement single image display
+      console.log(imageid);
+    };
   }]);
 })();
 
